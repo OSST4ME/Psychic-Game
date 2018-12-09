@@ -16,29 +16,29 @@
 <body>
     
     <p id="output">Guess what letter I'm thinking of...</p>
-    <br>
+        <br>
     <input id="input" type= "text" placeholder= "Enter your guess">
-    <button>Guess</button>
-    <br>
+    <button id ="button">Guess</button>
+        <br>
     <p>Wins: <span id="wins"></span></p>
-    <br>
+        <br>
     <p>Losses: <span id="losses"></span></p>
-    <br>
+        <br>
     <p>Guesses Left: <span id="guessLeft"></span></p>
-    <br>
+        <br>
     <p>Guesses So Far: <span id="guessesSoFar"></span></p>
-    <br>
-    <p>Guessed Letter: <span id="guessedLetter"></span></p>
+        <br>
+    <p>guessedLetter: <span id="letter"></span></p>
 
     <Script type="text/javascript">
 
+    
     $(document).ready(function() {
 
         var letter = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o',
             'p', 'q', 'r', 's', 't' ,'u', 'v', 'w', 'x', 'y', 'z'];  
         var computerChoice = letter[Math.floor(Math.random() *letter.length)];
-            console.log(computerChoice); 
-               
+
         var wins = 0;
         var losses = 0;
         var guessesLeft = 10;
@@ -48,25 +48,21 @@
 
         var output = document.querySelector ("#output");
         var input = document.querySelector ("#input");
-        
-       
-
-        Document.getElementById("wins");
-        Document.getElementById("losses");
-        Document.getELementById("guessesLeft");
-        Document.getElementById("guessesSoFar");
-
-                      
-        document.onkeypress = function(event) {
-            var userGuess = event.key;
-                    
-        if (userGuess === computerChoice) {
+        document.getElementById("button"). onclick = function() {
+                                             
+        $("guessedLetter").on("click", function() {
+            guessesLeft--;
+            guessesSoFar++;
+            alert("You've guessed" + "letter");
+        }
+                           
+        if (guessedLetter === computerChoice) {
             wins++; 
             guessesSoFar < 10;
             winText.textContent = "wins:" + wins;
             console.log("You are correct!");
         }
-        else if (userGuess --- computerChoice) {
+        else if (guessedLetter --- computerChoice) {
             guessesSoFar++;
             guessesLeftText.textContent = "Guesses Left: " + guessesLeft;
             guessesSoFarText.textContent = "Guesses So Far: " + guessChoice;
@@ -76,15 +72,13 @@
 
        if (guessesLeft===0) {
             losses++;
-            userGuessMade = [];
-            guesses = 10;
             }
 
-        }   
-        gameWon = true;
+        }  
+        if (gameWon = true) {
         endGame(); 
    }
-function endGame() {
+   function endGame() {
        if (gameWon) {
            output.innerHTML = "Yes, it's", + computerChoice +"!";
        }
@@ -93,8 +87,7 @@ function endGame() {
        }
    }
 
-   
-    </script>
+   </script>
     
 </body>
 </html>
